@@ -1,15 +1,13 @@
-package com.shanezhou.springcloud.dao;
+package com.shanezhou.springcloud.service;
 
 import com.shanezhou.springcloud.entity.Payment;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * @Author ShaneZhou
- * @Time 2020/06/05 17:24:30
+ * @Author shaneZhou
+ * @Time 2020/06/06 15:32 下午
  */
-@Mapper
-public interface IPaymentDao {
+public interface IPaymentService {
 
     int insert(Payment payment);
 

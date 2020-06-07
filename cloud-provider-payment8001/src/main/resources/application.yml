@@ -5,10 +5,10 @@ spring:
   application:
     name: cloud-payment-service
   datasource:
-    url: jdbc:oracle:thin:@localhost:1521:oracledb
+    url: jdbc:oracle:thin:@localhost:1521:xe
     driver-class-name: oracle.jdbc.driver.OracleDriver
-    username: C##SHANE
-    password: 123456
+    username: shane
+    password: shane
     type: com.alibaba.druid.pool.DruidDataSource
 
 mybatis:
