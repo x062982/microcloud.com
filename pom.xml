@@ -15,6 +15,7 @@
 	  <module>cloud-consume-order80</module>
 	  <module>cloud-server-eureka7001</module>
 	  <module>cloud-server-eureka7002</module>
+	  <module>cloud-provider-payment8002</module>
   </modules>
 
   <!-- 统一管理jar包版本 -->

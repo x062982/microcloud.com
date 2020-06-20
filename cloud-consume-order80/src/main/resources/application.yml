@@ -5,6 +5,8 @@ spring:
     name: cloud-consume-order
 
 eureka:
+  instance:
+    instance-id: order80
   client:
     # 表示是否将自己注册进eureka
     register-with-eureka: true

@@ -2,6 +2,7 @@ package com.shanezhou.springcloud.service;
 
 import com.shanezhou.springcloud.entity.CommonResult;
 import com.shanezhou.springcloud.entity.Payment;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
