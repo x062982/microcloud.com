@@ -2,8 +2,11 @@ package com.shanezhou.springcloud.controller;
 
 import com.shanezhou.springcloud.entity.CommonResult;
 import com.shanezhou.springcloud.entity.Payment;
+import com.shanezhou.springcloud.lb.ILoadBalancer;
 import com.shanezhou.springcloud.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -19,6 +22,12 @@ public class OrderController {
     @Autowired
     private IOrderService orderService;
 
+    @Resource
+    private ILoadBalancer loadBalancer;
+
+    @Resource
+    private DiscoveryClient discoveryClient;
+
     @GetMapping("/payment/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable Long id) {
         return orderService.getPaymentById(id);
@@ -32,5 +41,15 @@ public class OrderController {
     @PostMapping("/payment")
     public CommonResult<Boolean> savePayment(@RequestBody Payment payment){
         return orderService.savePayment(payment);
+    }
+
+    @GetMapping("/lb")
+    public String getServiceLB() {
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PROVIDER-PAYMENT");
+        if (instances == null || instances.size() <= 0) {
+            return null;
+        }
+        ServiceInstance instance = loadBalancer.instance(instances);
+        return instance.getHost();
     }
 }

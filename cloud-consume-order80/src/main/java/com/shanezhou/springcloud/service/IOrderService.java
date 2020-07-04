@@ -2,6 +2,7 @@ package com.shanezhou.springcloud.service;
 
 import com.shanezhou.springcloud.entity.CommonResult;
 import com.shanezhou.springcloud.entity.Payment;
+import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -28,4 +29,5 @@ public interface IOrderService {
 
     @PostMapping("/payment")
     public CommonResult<Boolean> savePayment(@RequestBody Payment payment);
+
 }
