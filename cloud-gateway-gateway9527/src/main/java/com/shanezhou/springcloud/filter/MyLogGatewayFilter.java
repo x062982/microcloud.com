@@ -21,12 +21,12 @@ public class MyLogGatewayFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         log.info("******Come in MyLogGatewayFilter******");
-        String username = exchange.getRequest().getQueryParams().getFirst("username");
-        if (username == null) {
-            log.error("******用户名为空，没有权限！");
-            exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
-            return exchange.getResponse().setComplete();
-        }
+        //String username = exchange.getRequest().getQueryParams().getFirst("username");
+        //if (username == null) {
+        //    log.error("******用户名为空，没有权限！");
+        //    exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+        //    return exchange.getResponse().setComplete();
+        //}
         return chain.filter(exchange);
     }
 
