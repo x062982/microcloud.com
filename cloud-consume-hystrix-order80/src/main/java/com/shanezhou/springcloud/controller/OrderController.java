@@ -66,4 +66,9 @@ public class OrderController {
     public String paymentGlobalFallbackMethod() {
         return "<h1>Consume Global Fallback</h1>";
     }
+
+    @GetMapping("/outh")
+    public String testOuth() {
+        return "outh hello";
+    }
 }
