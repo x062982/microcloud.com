@@ -10,8 +10,8 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>cloud-provider-payment8001</module>
-    <module>cloud-api-commons</module>
+      <module>cloud-provider-payment8001</module>
+      <module>cloud-api-commons</module>
 	  <module>cloud-consume-order80</module>
 	  <module>cloud-server-eureka7001</module>
 	  <module>cloud-server-eureka7002</module>
@@ -21,6 +21,12 @@
 	  <module>cloud-consume-hystrix-dashboard9001</module>
 	  <module>cloud-gateway-gateway9527</module>
 	  <module>cloud-auth-service8888</module>
+      <module>cloud-auth-service8889</module>
+      <module>cloud-gateway-service8899</module>
+      <module>cloud-server-config8901</module>
+      <module>cloud-config-client8902</module>
+      <module>cloud-server-config8903</module>
+      <module>cloud-config-client8904</module>
   </modules>
 
   <!-- 统一管理jar包版本 -->

@@ -6,26 +6,38 @@ spring:
 
   cloud:
     gateway:
-      routes:
-        - id: payment8001_routh1   # 路由的id， 没有固定规则 但要求 唯一，建议配合服务名
-#          uri: http://localhost:8001    # 匹配后提供服务的路由地址
-          uri: lb://CLOUD-PROVIDER-PAYMENT
-          predicates:
-            - Path=/payments/**    # 断言，路径相匹配的进行路由
-
-        - id: payment8001_routh2   # 路由的id， 没有固定规则 但要求 唯一，建议配合服务名
-#          uri: http://localhost:8001    # 匹配后提供服务的路由地址
-          uri: lb://CLOUD-PROVIDER-PAYMENT
-          predicates:
-            - Path=/lb/**   # 断言，路径相匹配的进行路由
-            - Cookie=username,shane
       discovery:
         locator:
-          enabled: true   # 开启从注册中心动态创建路由的功能，利用微服务名来进行路由
+          enabled: true
+          lower-case-service-id: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8889/auth-service/.well-known/jwks.json
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: payment8001_routh1   # 路由的id， 没有固定规则 但要求 唯一，建议配合服务名
+##          uri: http://localhost:8001    # 匹配后提供服务的路由地址
+#          uri: lb://CLOUD-PROVIDER-PAYMENT
+#          predicates:
+#            - Path=/payments/**    # 断言，路径相匹配的进行路由
+#
+#        - id: payment8001_routh2   # 路由的id， 没有固定规则 但要求 唯一，建议配合服务名
+##          uri: http://localhost:8001    # 匹配后提供服务的路由地址
+#          uri: lb://CLOUD-PROVIDER-PAYMENT
+#          predicates:
+#            - Path=/lb/**   # 断言，路径相匹配的进行路由
+#            - Cookie=username,shane
+#      discovery:
+#        locator:
+#          enabled: true   # 开启从注册中心动态创建路由的功能，利用微服务名来进行路由
 
 eureka:
   instance:
-    hostname: cloud-gateway-service
+    hostname: localhost
 
   client:
     service-url:

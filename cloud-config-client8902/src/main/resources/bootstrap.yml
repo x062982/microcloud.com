@@ -1,0 +1,33 @@
+server:
+  port: 8902
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      uri: http://localhost:8903
+      name: config
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: SERVER-CONFIG
+
+  rabbitmq:
+    password: shane
+    username: shane
+    port: 5672
+    host: localhost
+
+eureka:
+  instance:
+    instance-id: config-client8902
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'refresh'

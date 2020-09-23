@@ -49,6 +49,7 @@ public class PaymentController {
     @GetMapping("/payments")
     public CommonResult<List<Payment>> gepPayments() {
         List<Payment> result = paymentService.list();
+
         log.info("******查询结果：" + result);
         if (result != null) {
             return new CommonResult<>(200, serverPort + "查询成功", result);

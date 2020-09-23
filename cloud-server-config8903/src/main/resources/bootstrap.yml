@@ -1,0 +1,38 @@
+server:
+  port: 8903
+spring:
+  application:
+    name: server-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/x062982/cloud-config-repository.git
+          username: x062982
+          password: x643725406
+          clone-on-start: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: shane
+    password: shane
+
+eureka:
+  instance:
+    instance-id: config8903
+    prefer-ip-address: true
+
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+#      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka  # 集群版
+      defaultZone: http://eureka7001.com:7001/eureka                                    # 单机版
+
+# 暴露bus 刷新配置的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'

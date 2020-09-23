@@ -11,8 +11,8 @@ eureka:
     fetch-registry: false
     service-url:
 #    单机版 defaultZone 配置
-#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 #    集群版 defaultZone 配置
-      defaultZone: http://eureka7002.com:7002/eureka/
+#      defaultZone: http://eureka7002.com:7002/eureka/
 
 
