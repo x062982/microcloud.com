@@ -1,18 +1,33 @@
-#server:
-#  port: 80
-#spring:
-#  application:
-#    name: cloud-consume-order
-#
-#eureka:
-#  instance:
-#    instance-id: order80
-#  client:
-#    # 表示是否将自己注册进eureka
-#    register-with-eureka: true
-#    # 是否从eurekaServer抓取已有的注册信息，默认为true。
-#    # 单节点的时候无所谓，集群必须设置为true才能配合ribbon使用负载均衡
-#    fetch-registry: true
-#    service-url:
-#      defaultZone: http://localhost:7001/eureka
-##      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka  # 集群版
+server:
+  port: 80
+spring:
+  application:
+    name: cloud-consume-order
+# 指定国际化的包名位置
+  messages:
+    basename: i18n.login
+
+# 打开隐藏提交方式
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+# 禁用thymeleaf模版引擎的缓存
+  thymeleaf:
+    cache: false
+
+  main:
+    allow-bean-definition-overriding: true
+
+eureka:
+  instance:
+    instance-id: order80
+  client:
+    # 表示是否将自己注册进eureka
+    register-with-eureka: true
+    # 是否从eurekaServer抓取已有的注册信息，默认为true。
+    # 单节点的时候无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+#      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka  # 集群版

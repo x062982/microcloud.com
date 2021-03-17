@@ -1,0 +1,41 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: cloud-provider-payment
+  cloud:
+    config:
+      uri: http://localhost:8903
+      name: cloud-provider-payment
+      label: master
+      profile: ""
+
+      discovery:
+        enabled: true
+        service-id: SERVER-CONFIG
+
+  rabbitmq:
+    username: shane
+    password: shane
+    port: 5672
+    host: localhost
+    
+
+eureka:
+  instance:
+    instance-id: payment8001
+    prefer-ip-address: true
+  client:
+    # 表示是否将自己注册进eureka
+    register-with-eureka: true
+    # 是否从eurekaServer抓取已有的注册信息，默认为true。
+    # 单节点的时候无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+#      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka  # 集群版
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.shanezhou.springcloud.entity
+

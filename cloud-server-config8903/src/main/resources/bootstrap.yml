@@ -7,10 +7,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/x062982/cloud-config-repository.git
-          username: x062982
-          password: x643725406
+          uri: git@github.com:x062982/cloud-config-repository.git
+
           clone-on-start: true
+          
 
   rabbitmq:
     host: localhost

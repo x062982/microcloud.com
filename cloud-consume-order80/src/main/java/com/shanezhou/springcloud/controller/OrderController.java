@@ -17,6 +17,7 @@ import java.util.List;
  * @Time 2020/06/14 19:02 下午
  */
 @RestController
+@RequestMapping("/order")
 public class OrderController {
 
     @Autowired

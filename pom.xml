@@ -27,6 +27,8 @@
       <module>cloud-config-client8902</module>
       <module>cloud-server-config8903</module>
       <module>cloud-config-client8904</module>
+      <module>cloud-auth2-server8890</module>
+      <module>cloud-oauth2-server6001</module>
   </modules>
 
   <!-- 统一管理jar包版本 -->

@@ -1,7 +1,10 @@
 package com.shanezhou.springcloud.test;
 
 import com.shanezhou.springcloud.entity.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -29,6 +32,11 @@ public class Test {
         //    });
         //}
 
-
+        System.out.println(new DecimalFormat("#.00").format(11.33333));
+        System.out.println(new DecimalFormat("#.00").format(11.33733));
+        System.out.println(String.format("%.1f", 11.367));
+        System.out.println(String.format("%.1f", 21.363));
+        double round = Math.round(1.232);
+        System.out.println(round);
     }
 }

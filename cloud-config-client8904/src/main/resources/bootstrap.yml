@@ -21,7 +21,7 @@ spring:
 
 eureka:
   instance:
-    instance-id: config-client8902
+    instance-id: config-client8904
     prefer-ip-address: true
   client:
     service-url:
