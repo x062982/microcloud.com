@@ -9,7 +9,7 @@ spring:
         git:
           uri: https://github.com/x062982/cloud-config-repository.git
           username: x062982
-          password: x643725406
+          password: 
           clone-on-start: true
 
 eureka:
